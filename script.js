@@ -25,6 +25,7 @@ function main(ctime) {
     // part1:updating the snake array
     
     // part2: render the snake and food
+    // display the snake
     board.innerHTML = "";
     snakeArr.forEach((e , index)=>{
         snakeElement = document.createElement('div');
@@ -32,7 +33,14 @@ function main(ctime) {
         snakeElement.style.gridColumnStart = e.x;
         snakeElement.classList.add('food');
         board.appendChild(snakeElement);
-    })
+    });
+    // display the food
+    foodElement = document.createElement('div');
+    foodElement.style.gridRowStart = e.y;
+    foodElement.style.gridColumnStart = e.x;
+    foodElement.classList.add('food');
+    board.appendChild(snakeElement);
+
 }
 
 
