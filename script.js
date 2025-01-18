@@ -23,8 +23,16 @@ function main(ctime) {
 }
  function gameEngine(){
     // part1:updating the snake array
-
+    
     // part2: render the snake and food
+    board.innerHTML = "";
+    snakeArr.forEach((e , index)=>{
+        snakeElement = document.createElement('div');
+        snakeElement.style.gridRowStart = e.y;
+        snakeElement.style.gridColumnStart = e.x;
+        snakeElement.classList.add('food');
+        board.appendChild(snakeElement);
+    })
 }
 
 
