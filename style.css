@@ -2,6 +2,7 @@
     margin:0px;
     padding:0px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .body{
@@ -9,15 +10,29 @@
     min-height: 100vh;
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+}
+#snake{
+    padding-left:20px;
+    padding-top:8px;
+    margin-left:30px;
+    font-size: 60px;
+    margin-top:30px;
+    border: 4px solid black;
+    background-color: rgb(210, 238, 107);
+    height:100px;
+    width:400px;
 }
 #board{
+    
     background: linear-gradient(rgb(167, 238, 167), rgb(236, 236, 156));
+    margin-left:450px;
+    margin-top:-90px;
     width:90vmin;
-    height:92vmin;
-    border:2px solid black;
+    height:90vmin;
+    border:4px solid black;
     display:grid;
     grid-template-rows: repeat(18, 1fr);
     grid-template-columns:repeat(18, 1fr) ;
@@ -35,6 +50,6 @@
 }
 
 .food{
-    background-color: purple;
+    background-color: rgb(212, 34, 18);
     border-radius: 7px;
 }

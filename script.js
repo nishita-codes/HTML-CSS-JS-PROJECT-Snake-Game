@@ -23,22 +23,22 @@ function main(ctime) {
     gameEngine();
 
 }
-function isCollide(snake){
+function isCollide(snake) {
     // if younbump into urself
-    for(let i = 1; i < snakeArr.length ; i++){
-        if(snake[i].x === snake[0].x && snake[i].y === snake[0].y){
+    for (let i = 1; i < snakeArr.length; i++) {
+        if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
             return true;
         }
     }
     // when u bump into the wall
-        if(snake[0].x >= 18 || snake[0].x <=0 || snake[0].y >= 18 || snake[0].y <=0 ){
-     return true;
-}
+    if (snake[0].x >= 18 || snake[0].x <= 0 || snake[0].y >= 18 || snake[0].y <= 0) {
+        return true;
+    }
 }
 
 function gameEngine() {
     // part1:updating the snake array
-    if(isCollide(snakeArr)) {
+    if (isCollide(snakeArr)) {
         gameOverSound.play();
         musicSound.pause();
         inputDir = { x: 0, y: 0 };
@@ -47,7 +47,7 @@ function gameEngine() {
         // musicSound.play();
         score = 0;
     }
-    
+
 
     //  if you have eaten the food , increamnet the score and regenrate the food
     if (snakeArr[0].y === food.y && snakeArr[0].x === food.x) {
@@ -60,12 +60,12 @@ function gameEngine() {
 
 
     //  moving the snake
-     for(let i=snakeArr.length - 2; i>=0; i--){
+    for (let i = snakeArr.length - 2; i >= 0; i--) {
         // const elment = array[i];
-        snakeArr[i+1] = {...snakeArr[i]};
-     }
-     snakeArr[0].x += inputDir.x;
-     snakeArr[0].y += inputDir.y;
+        snakeArr[i + 1] = { ...snakeArr[i] };
+    }
+    snakeArr[0].x += inputDir.x;
+    snakeArr[0].y += inputDir.y;
 
 
 
@@ -96,7 +96,7 @@ function gameEngine() {
 //Main logic starts here
 window.requestAnimationFrame(main);
 window.addEventListener('keydown', e => {
-    inputDir = { x: 0, y: 1 }; //start the game
+    inputDir = { x: 0, y: 0 }; //start the game
     moveSound.play();
     switch (e.key) {
         case "ArrowUp":
@@ -119,7 +119,7 @@ window.addEventListener('keydown', e => {
             inputDir.x = 1;
             inputDir.y = 0;
             break;
-        case Default :
+        case Default:
             break;
 
     }
