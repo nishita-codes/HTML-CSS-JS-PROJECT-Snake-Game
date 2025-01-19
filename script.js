@@ -32,7 +32,7 @@ function isCollide(snake) {
     }
     // when u bump into the wall
     if (snake[0].x >= 18 || snake[0].x <= 0 || snake[0].y >= 18 || snake[0].y <= 0) {
-        return true;
+      return true;
     }
 }
 
@@ -52,6 +52,8 @@ function gameEngine() {
     //  if you have eaten the food , increamnet the score and regenrate the food
     if (snakeArr[0].y === food.y && snakeArr[0].x === food.x) {
         foodSound.play();
+        score += 1;
+        ScoreBox.innerHTML = "Score :"+ score;
         snakeArr.unshift({ x: snakeArr[0].x + inputDir.x, y: snakeArr[0].y + inputDir.y })
         let a = 2;
         let b = 16;
