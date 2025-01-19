@@ -14,7 +14,7 @@ food = {x: 6, y:7};
 //Game Function
 function main(ctime) {
     window.requestAnimationFrame(main);
-    console.log(ctime)
+    // console.log(ctime)
     if((ctime - lastPaintTime)/1000 < 1/speed){
         return;
     }
@@ -54,3 +54,32 @@ function main(ctime) {
 
 //Main logic starts here
 window.requestAnimationFrame(main);
+window.addEventListener('keydown',e =>{
+   inputDir = {x: 0, y:1}; //start the game
+   moveSound.play();
+   switch(e.key){
+    case "Arrowup":
+        console.log("Arrowup");
+        inputDir.x = 0;
+        inputDir.y = -1;
+        break;
+    case "ArrowDown":
+        console.log("ArrowDown");
+        inputDir.x = 0;
+        inputDir.y = 1;
+        break;
+    case "ArrowLeft":
+        console.log("ArrowLeft");
+        inputDir.x = -1;
+        inputDir.y = 0;
+        break;
+    case "ArrowRight":
+        console.log("ArrowRight");
+        inputDir.x = 1;
+        inputDir.y = 0;
+        break;
+    Default:
+        break;
+
+   }
+});
