@@ -24,12 +24,17 @@
 }
 
 .head{
-    background-color: red;
+    background-color:rgb(123, 64, 64);
+    border:1px solid black;
+    border-radius:22px;
 }
 .snake{
-    background-color: green;
+    background-color: rgb(224, 104, 196) ;
+    /* border: .25vmin solid white; */
+    border-radius: 22px;
 }
 
 .food{
     background-color: purple;
+    border-radius: 7px;
 }
