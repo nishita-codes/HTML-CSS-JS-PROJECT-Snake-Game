@@ -1,10 +1,11 @@
 console.log("welcome to my snake game");
-let direction ={x: 0 , y:0};
+let inputDir ={x: 0 , y:0};
 let foodSound= new Audio('../music/food.mp3');
 let gameOverSound = new Audio('../music/gameover.mp3');
 let moveSound = new Audio('../music/move.mp3');
 let musicSound = new Audio('../music/music.mp3');
 let speed = 2;
+let score =0;
 let lastPaintTime = 0;
 let snakeArr =[
     {x: 13, y:15}
@@ -24,7 +25,16 @@ function main(ctime) {
 }
  function gameEngine(){
     // part1:updating the snake array
-    
+    if(isCollide(snakeArr)){
+        gameOverSound.play();
+        musicSound.pause();
+        inputDir = {x:0, y:0};
+        alert("Game Over. Press any key to play again");
+        snakeArr = [{x:13, y:15}];
+        musicSound.play();
+         score =0;
+         
+    }
     // part2: render the snake and food
     // display the snake
     board.innerHTML = "";
