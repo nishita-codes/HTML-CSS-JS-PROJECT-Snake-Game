@@ -23,6 +23,19 @@ function main(ctime) {
     gameEngine();
 
 }
+function isCollide(snake){
+    // if younbump into urself
+    for(let i = 1; i < snakeArr.length ; i++){
+        if(snake[i].x === snake[0].x && snake[i].y === snake[0].y){
+            return true;
+        }
+    }
+    // when u bump into the wall
+        if(snake[0].x >= 18 || snake[0].x <=0 || snake[0].y >= 18 || snake[0].y <=0 ){
+     return true;
+}
+}
+
 function gameEngine() {
     // part1:updating the snake array
     if(isCollide(snakeArr)) {
@@ -34,17 +47,7 @@ function gameEngine() {
         musicSound.play();
         score = 0;
     }
-    function isCollide(snake){
-        // if younbump into urself
-        for(let index = 1; index < snakeArr.length; index++){
-            if(snake[i].x === snake[0].x && snake[i].y === snake[0].y){
-                return true;
-            }
-        }
-        // when u bump into the wall
-            if(snake[0].x >= 18 || snake[0].x <=0 && snake[0].y >= 18 || snake[0].y <=0 )
-         return true;
-    }
+    
 
     //  if you have eaten the food , increamnet the score and regenrate the food
     if (snakeArr[0].y === food.y && snakeArr[0].x === food.x) {
